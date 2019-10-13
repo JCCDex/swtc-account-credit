@@ -21,7 +21,7 @@ contract SwtcAccountCredit is Administrative {
   constructor() Administrative() public {
   }
 
-  function addSwtcAccountHashs(bytes32[] _hashs) public returns (bool) {
+  function addSwtcAccountHashs(bytes32[] _hashs) public onlyOwner returns (bool) {
     uint256 len = _hashs.length;
 
     for (uint256 i = 0; i < len; i++) {
@@ -33,7 +33,7 @@ contract SwtcAccountCredit is Administrative {
     return true;
   }
 
-  function removeSwtcAccountHash(bytes32 _hash) public returns (bool) {
+  function removeSwtcAccountHash(bytes32 _hash) public onlyOwner returns (bool) {
     return _swtcAccounts.remove(_hash);
   }
 
