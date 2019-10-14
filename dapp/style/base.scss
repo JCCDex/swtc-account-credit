@@ -1,0 +1,17 @@
+@import "./mixin.scss";
+
+.swtc-account-credit-small-font-size {
+  @include px2px("font-size", 12);
+}
+
+.swtc-account-credit-normal-font-size {
+  @include px2px("font-size", 13);
+}
+
+.swtc-account-credit-large-font-size {
+  @include px2px("font-size", 15);
+}
+
+.swtc-account-credit-larger-font-size {
+  @include px2px("font-size", 16);
+}

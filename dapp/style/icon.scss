@@ -1,0 +1,36 @@
+.swtc-account-credit-icon {
+  width: 0.4rem;
+  height: 0.4rem;
+  vertical-align: -0.15rem;
+  fill: currentColor;
+  overflow: hidden;
+
+  &.swtc-account-credit-icon-large {
+    width: 0.44rem;
+    height: 0.44rem;
+  }
+
+  &.swtc-account-credit-icon-small {
+    height: 0.28rem;
+    width: 0.28rem;
+  }
+
+  &.swtc-account-credit-icon-smaller {
+    height: 0.24rem;
+    width: 0.24rem;
+  }
+}
+
+@mixin icon() {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.swtc-account-credit-icon-circle {
+  height: 0.6rem;
+  width: 0.6rem;
+  border-radius: 0.3rem;
+  background-color: #fff;
+}
