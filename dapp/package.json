@@ -1,7 +1,7 @@
 {
   "name": "swtc-account-credit",
   "version": "1.0.0",
-  "description": "SWTC钱包风险查询",
+  "description": "SWTC钱包风险评估",
   "author": "JCCDex",
   "private": true,
   "scripts": {
@@ -32,7 +32,8 @@
     "nuxt": "^2.0.0",
     "tp-js-sdk": "^3.3.0",
     "vant": "^2.2.0",
-    "vue-i18n": "^8.14.0"
+    "vue-i18n": "^8.14.0",
+    "vue2-touch-events": "^2.0.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.2.6",

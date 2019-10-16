@@ -7,7 +7,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "SWTC钱包风险查询",
+    title: "SWTC钱包风险评估",
     meta: [
       { charset: "utf-8" },
       {
@@ -22,6 +22,12 @@ export default {
       },
       {
         src: "https://cdn.jsdelivr.net/npm/jcc-moac-utils@0.2.3/dist/jcc-moac-utils.min.js"
+      },
+      {
+        src: "https://cdn.jsdelivr.net/npm/ethers@4.0.37/dist/ethers.min.js"
+      },
+      {
+        src: "https://cdn.jsdelivr.net/npm/jcc_wallet@1.0.3/dist/jcc-wallet.min.js"
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
@@ -48,7 +54,6 @@ export default {
     "~/style/base.scss",
     "flex.css/dist/flex.css",
     "~/style/layout.scss",
-    "~/style/arrow.scss",
     "~/style/icon.scss",
     "~/style/scroll.scss",
     "~/style/override-vant.scss",
@@ -77,7 +82,9 @@ export default {
     extend(config, ctx) {
       config.externals = {
         vue: "Vue",
-        "jcc-moac-utils": "jcc_moac_utils"
+        ethers: "ethers",
+        "jcc-moac-utils": "jcc_moac_utils",
+        jcc_wallet: "jcc_wallet"
       };
       if (!ctx.isDev) {
         config.plugins.push(

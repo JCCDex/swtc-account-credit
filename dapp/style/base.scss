@@ -13,5 +13,9 @@
 }
 
 .swtc-account-credit-larger-font-size {
-  @include px2px("font-size", 16);
+  @include px2px("font-size", 17);
+}
+
+.swtc-account-credit-largest-font-size {
+  @include px2px("font-size", 20);
 }

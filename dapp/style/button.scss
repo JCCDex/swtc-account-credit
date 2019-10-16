@@ -13,30 +13,8 @@
   -webkit-appearance: none;
   -webkit-text-size-adjust: 100%;
 
-  &.swtc-account-credit-lock-button {
-    background-color: #399C7E;
-  }
-
-  &.swtc-account-credit-withdraw-button,
-  &.swtc-account-credit-apply-button {
-    background-color: #476EEA;
-  }
-
-  &.swtc-account-credit-confirm-button {
-    background-color: #0B1F5D;
-  }
-
-  &.swtc-account-credit-vote-button {
-    background-color: #5272D7;
-  }
-
-  &.swtc-account-credit-recall-button {
-    background-color: #877DE7;
-  }
-
-  &.swtc-account-credit-small-button {
-    height: 0.6rem;
-    line-height: 0.6rem;
+  &.swtc-account-credit-search-button {
+    background-color: #008EFF;
   }
 
   &::before {

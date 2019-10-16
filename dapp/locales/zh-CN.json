@@ -1,3 +1,20 @@
 {
-
+  "copyright": "版权开发：安徽井畅数字技术有限公司",
+  "risk_evaluation": "风险评估",
+  "query_declare": "输入井通SWTC钱包地址后查询您的钱包是否存在风险，您的钱包地址信息不会被暴露在公链上，查询地址不收取任何费用，请放心查询。",
+  "pls_input_address": "请输入SWTC钱包地址",
+  "query": "立即查询",
+  "query_result": "风险查询结果",
+  "query_address": "查询地址：{address}",
+  "risk": "有风险",
+  "safe": "无风险",
+  "risk_declare": "请注意！您的地址存在一定风险，请立即转移资产。",
+  "safe_declare": "恭喜您，您的地址暂无风险，请妥善保管好。",
+  "how_to_transfer": "如何转移钱包资产？",
+  "transfer_tip": {
+    "tip1": "在威链创建新钱包,备份好地址密钥。",
+    "download_weidex": "长按二维码 下载威链APP",
+    "tip2": "将资产从旧钱包转移到新钱包：进入威链APP-发现-转移资产，一键转移资产。"
+  },
+  "powered_by": "合约服务由墨客公链提供"
 }
