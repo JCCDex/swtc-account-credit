@@ -1,8 +1,14 @@
 import tp from "tp-js-sdk";
 import { isMainnet } from "./util";
 
+interface IWallet {
+  name: string;
+  address: string;
+  blockchain: string;
+}
+
 const tpInfo = (() => {
-  let address: string = null;
+  let currentWallet: IWallet = null;
   let node: string = null;
   let isConnectedState: boolean = null;
 
@@ -13,23 +19,23 @@ const tpInfo = (() => {
     return isConnectedState;
   };
 
-  const getAddress = async (): Promise<string> => {
+  const getCurrentWallet = async (): Promise<IWallet> => {
     if (!isConnected()) {
-      address = process.env.MOAC_ADDRESS;
-      return address;
+      currentWallet = null;
+      return currentWallet;
     }
 
-    if (address === null) {
+    if (currentWallet === null) {
       try {
         const res = await tp.getCurrentWallet();
         if (res && res.result) {
-          address = res.data.address;
+          currentWallet = res.data;
         }
       } catch (error) {
-        address = null;
+        currentWallet = null;
       }
     }
-    return address;
+    return currentWallet;
   };
 
   const getNode = async (): Promise<string> => {
@@ -52,14 +58,14 @@ const tpInfo = (() => {
   };
 
   const destroy = () => {
-    address = null;
+    currentWallet = null;
     node = null;
     isConnectedState = null;
   };
 
   return {
     destroy,
-    getAddress,
+    getCurrentWallet,
     getNode,
     isConnected
   };

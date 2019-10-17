@@ -38,7 +38,8 @@ export default {
     MAINNET: process.env.Mainnet
   },
   router: {
-    mode: "hash"
+    mode: "hash",
+    middleware: ["redirect"]
   },
   /*
    ** Customize the progress-bar color
