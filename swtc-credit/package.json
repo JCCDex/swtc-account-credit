@@ -1,6 +1,6 @@
 {
   "name": "swtc-credit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ts sdk for querying risk of SWTC wallet",
   "author": "JCCDex",
   "main": "./lib/contract.js",
@@ -46,7 +46,7 @@
     "typescript": "^3.6.4"
   },
   "files": [
-    "./lib"
+    "lib"
   ],
   "sideEffects": false
 }

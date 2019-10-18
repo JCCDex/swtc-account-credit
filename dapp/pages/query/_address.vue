@@ -66,9 +66,10 @@
 import BScroll from "@better-scroll/core";
 import QueryHeader from "@/components/header";
 import CopyrightFooter from "@/components/footer";
-import creditContractInstance from "@/js/contract";
+import creditContractInstance from "swtc-credit";
 import tpInfo from "@/js/tp";
 import tp from "tp-js-sdk";
+import { isMainnet } from "@/js/util";
 
 export default {
   name: "QueryResult",
@@ -85,7 +86,9 @@ export default {
   async asyncData({ params }) {
     const address = params.address;
     const node = await tpInfo.getNode();
-    const hasRisk = await creditContractInstance.init(node).queryCredit(address);
+    const mainnet = isMainnet();
+    const contractAddress = process.env.CONTRACT;
+    const hasRisk = await creditContractInstance.init(contractAddress, node, mainnet).queryCredit(address);
     return { address, hasRisk };
   },
   mounted() {
