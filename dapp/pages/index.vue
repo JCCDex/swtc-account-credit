@@ -11,7 +11,7 @@
             <p style="margin-top: 0.21rem;">
               {{ $t("query_declare") }}
             </p>
-            <van-field v-model="address" center type="string" :placeholder="$t('pls_input_address')" style="margin-top: 0.4rem;" />
+            <van-field v-model="address" center type="text" :placeholder="$t('pls_input_address')" style="margin-top: 0.4rem;" />
 
             <button :disabled="!queryEnable" class="swtc-account-credit-button swtc-account-credit-search-button" style="width: 100%;margin-top: 0.4rem;" @click="goto">
               {{ $t("query") }}

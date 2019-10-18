@@ -1,5 +1,4 @@
 import tp from "tp-js-sdk";
-import { isMainnet } from "./util";
 
 interface IWallet {
   name: string;
@@ -39,7 +38,7 @@ const tpInfo = (() => {
   };
 
   const getNode = async (): Promise<string> => {
-    if (!isMainnet()) {
+    if (!isConnected()) {
       node = process.env.NODE;
       return node;
     }
