@@ -1,0 +1,51 @@
+{
+  "extends": "tslint:recommended",
+  "linterOptions": {},
+  "rules": {
+    "semicolon": [true, "always", "ignore-bound-class-methods", "ignore-interfaces"],
+    "no-console": false,
+    "only-arrow-functions": false,
+    "trailing-comma": [true, {
+      "singleline": "never",
+      "multiline": {
+        "objects": "ignore",
+        "arrays": "ignore",
+        "functions": "ignore",
+        "typeLiterals": "ignore"
+      }
+    }],
+    "max-line-length": [true, 320],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "public-instance-field",
+          "private-static-field",
+          "private-instance-field",
+          "public-constructor",
+          "private-constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ]
+      }
+    ],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "space-before-function-paren": [true, {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always",
+      "constructor": "never"
+    }],
+    "prettier/prettier": ["error", {
+      "trailingComma": "none",
+      "semi": true,
+      "tabWidth": 2,
+      "singleQuote": false,
+      "bracketSpacing": true,
+      "jsxBracketSameLine": true,
+      "printWidth": 240
+    }]
+  }
+}

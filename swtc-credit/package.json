@@ -1,0 +1,52 @@
+{
+  "name": "swtc-credit",
+  "version": "0.1.1",
+  "description": "ts sdk for querying risk of SWTC wallet",
+  "author": "JCCDex",
+  "main": "./lib/contract.js",
+  "types": "./lib/contract.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "deploy": "./publish.sh",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "test": "jest",
+    "tslint": "tslint --project tsconfig.json --config tslint.json",
+    "precommit": "npm run tslint"
+  },
+  "dependencies": {
+    "ethers": "^4.0.37",
+    "jcc-moac-utils": "^0.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCCDex/swtc-account-credit.git"
+  },
+  "keywords": [
+    "swtc",
+    "risk-query",
+    "moac"
+  ],
+  "bugs": {
+    "url": "https://github.com/JCCDex/swtc-account-credit/issues"
+  },
+  "homepage": "https://github.com/JCCDex/swtc-account-credit#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.6.3",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.1.0",
+    "coveralls": "^3.0.6",
+    "husky": "^3.0.5",
+    "jest": "^24.1.0",
+    "prettier": "^1.18.2",
+    "sinon": "^7.5.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  },
+  "files": [
+    "./lib"
+  ],
+  "sideEffects": false
+}
