@@ -11,7 +11,7 @@
             <p style="margin-top: 0.21rem;">
               {{ $t("query_declare") }}
             </p>
-            <van-field v-model="address" center type="text" :placeholder="$t('pls_input_address')" style="margin-top: 0.4rem;" />
+            <van-field v-model="address" center type="text" :placeholder="$t('pls_input_address')" style="margin-top: 0.4rem;" @focus="disableScroll" @blur="enableScroll" />
 
             <button :disabled="!queryEnable" class="swtc-account-credit-button swtc-account-credit-search-button" style="width: 100%;margin-top: 0.4rem;" @click="goto">
               {{ $t("query") }}
@@ -48,15 +48,6 @@ export default {
   mounted() {
     this.init();
   },
-  updated() {
-    this.bs.refresh();
-  },
-  deactivated() {
-    this.$destroy();
-  },
-  beforeDestroy() {
-    this.bs.destroy();
-  },
   methods: {
     init() {
       this.bs = new BScroll(this.$refs.scroll, {
@@ -66,6 +57,16 @@ export default {
     },
     goto() {
       this.$router.push("/query/" + this.address.trim());
+    },
+    disableScroll() {
+      if (this.bs) {
+        this.bs.disable();
+      }
+    },
+    enableScroll() {
+      if (this.bs) {
+        this.bs.enable();
+      }
     }
   }
 };

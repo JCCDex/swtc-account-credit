@@ -1,5 +1,5 @@
 <template>
-  <header class="swtc-account-credit-footer swtc-account-credit-large-font-size" flex="main:center cross:center dir:top">
+  <header class="swtc-account-credit-footer swtc-account-credit-normal-font-size" flex="main:center cross:center dir:top">
     <p>{{ $t("powered_by") }}</p>
     <p style="margin-top:0.1rem;">
       {{ $t("copyright") }}
