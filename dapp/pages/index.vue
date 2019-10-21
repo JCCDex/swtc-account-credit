@@ -48,6 +48,9 @@ export default {
   mounted() {
     this.init();
   },
+  beforeDestroy() {
+    this.bs && this.bs.destroy();
+  },
   methods: {
     init() {
       this.bs = new BScroll(this.$refs.scroll, {
@@ -59,14 +62,10 @@ export default {
       this.$router.push("/query/" + this.address.trim());
     },
     disableScroll() {
-      if (this.bs) {
-        this.bs.disable();
-      }
+      this.bs && this.bs.disable();
     },
     enableScroll() {
-      if (this.bs) {
-        this.bs.enable();
-      }
+      this.bs && this.bs.enable();
     }
   }
 };

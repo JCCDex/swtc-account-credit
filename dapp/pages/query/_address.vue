@@ -81,11 +81,8 @@ export default {
   updated() {
     this.bs.refresh();
   },
-  deactivated() {
-    this.$destroy();
-  },
   beforeDestroy() {
-    this.bs.destroy();
+    this.bs && this.bs.destroy();
   },
   methods: {
     init() {
