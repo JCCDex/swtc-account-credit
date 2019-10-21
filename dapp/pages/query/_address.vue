@@ -29,22 +29,7 @@
                       {{ $t("how_to_transfer") }}
                     </p>
                     <div flex="cross: center" style="text-align:left;color:#24262C;margin-top:0.41rem;">
-                      <div flex-box="0" class="swtc-account-credit-icon-circle" style="margin-right:0.16rem;">
-                        1
-                      </div>
                       <p>{{ $t("transfer_tip.tip1") }}</p>
-                    </div>
-                    <div flex="cross: center" style="margin-top:0.22rem;">
-                      <div v-touch:longtap="scan" class="swtc-account-credit-qrcode" />
-                      <p flex="dir:bottom" style="width:2rem;padding-bottom:0.1rem;">
-                        {{ $t("transfer_tip.download_weidex") }}
-                      </p>
-                    </div>
-                    <div flex="cross: center" style="text-align:left;color:#24262C;margin-top:0.41rem;">
-                      <div flex-box="0" class="swtc-account-credit-icon-circle" style="margin-right:0.16rem;">
-                        2
-                      </div>
-                      <p>{{ $t("transfer_tip.tip2") }}</p>
                     </div>
                   </div>
                 </div>
@@ -68,7 +53,6 @@ import QueryHeader from "@/components/header";
 import CopyrightFooter from "@/components/footer";
 import creditContractInstance from "swtc-credit";
 import tpInfo from "@/js/tp";
-import tp from "tp-js-sdk";
 import { isMainnet } from "@/js/util";
 
 export default {
@@ -109,13 +93,6 @@ export default {
         scrollY: true,
         click: true
       });
-    },
-    scan() {
-      if (tpInfo.isConnected()) {
-        tp.invokeQRScanner().then(url => {
-          window.open(url);
-        });
-      }
     }
   }
 };
