@@ -1,7 +1,7 @@
 <template>
   <div class="swtc-account-credit-container">
     <div style="position: fixed; height: 100%; width: 100%; top: 0;">
-      <div ref="scroll" flex class="scroll-wrapper" style="height: 100%;">
+      <div ref="scroll" flex class="scroll-wrapper" style="height: 100%;overflow-y:scroll;">
         <div flex-box="1" flex="dir:top cross: center">
           <div flex="main:center cross:center dir:top" style="margin: 0.5rem 0.3rem 0 0.3rem;">
             <img src="~/assets/images/home-header.png" width="50%" />
@@ -17,7 +17,7 @@
               {{ $t("query") }}
             </button>
           </div>
-          <div flex-box="1" flex="cross:bottom">
+          <div v-show="showFooter" flex-box="1" flex="cross:bottom">
             <copyright-footer />
           </div>
         </div>
@@ -29,15 +29,20 @@
 import BScroll from "@better-scroll/core";
 import CopyrightFooter from "@/components/footer";
 import { jtWallet } from "jcc_wallet";
+import scrollIntoView from "@/mixins/scrollIntoView";
+import { browser } from "@/js/util";
 
 export default {
   name: "Main",
   components: {
     CopyrightFooter
   },
+  mixins: [scrollIntoView],
   data() {
     return {
-      address: ""
+      address: "",
+      showFooter: true,
+      innerHeight: window.innerHeight
     };
   },
   computed: {
@@ -47,9 +52,15 @@ export default {
   },
   mounted() {
     this.init();
+    if (browser.versions.android) {
+      window.addEventListener("resize", this.keyup);
+    }
   },
   beforeDestroy() {
     this.bs && this.bs.destroy();
+    if (browser.versions.android) {
+      window.removeEventListener("resize", this.keyup);
+    }
   },
   methods: {
     init() {
@@ -66,6 +77,16 @@ export default {
     },
     enableScroll() {
       this.bs && this.bs.enable();
+    },
+    keyup() {
+      const newInnerHeight = window.innerHeight;
+      if (this.innerHeight > newInnerHeight) {
+        // keyup event
+        this.showFooter = false;
+      } else {
+        // keydown event
+        this.showFooter = true;
+      }
     }
   }
 };
