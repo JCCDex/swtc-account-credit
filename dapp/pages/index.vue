@@ -73,10 +73,14 @@ export default {
       this.$router.push("/query/" + this.address.trim());
     },
     disableScroll() {
-      this.bs && this.bs.disable();
+      if (browser.versions.ios) {
+        this.bs && this.bs.disable();
+      }
     },
     enableScroll() {
-      this.bs && this.bs.enable();
+      if (browser.versions.ios) {
+        this.bs && this.bs.enable();
+      }
     },
     keyup() {
       const newInnerHeight = window.innerHeight;
