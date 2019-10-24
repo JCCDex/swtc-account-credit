@@ -35,7 +35,7 @@ if (!(program.gas_limit)) {
   process.exit();
 }
 if (!(program.nonce)) {
-  console.log('miss gas limit')
+  console.log('miss nonce')
   process.exit();
 }
 if (isNaN(program.nonce)) {
