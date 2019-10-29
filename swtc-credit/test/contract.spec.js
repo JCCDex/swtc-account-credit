@@ -40,7 +40,7 @@ describe("test contract.ts", () => {
 
     test("if request success", async () => {
       const stub = sandbox.stub(instance.moac.getChain3().mc, "call");
-      stub.yields(null, "0x0000000000000000000000000000000000000000000000000000000000000001")
+      stub.returns("0x0000000000000000000000000000000000000000000000000000000000000001")
       const spy = sandbox.spy(SmartContract.prototype, "callABI");
       const state = await instance.queryCredit(address);
       const args = stub.args[0];
@@ -49,19 +49,8 @@ describe("test contract.ts", () => {
         data: '0x6b6f71c20000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002a30783565646363656466653939353266356238323839333762333235626431663133326161303966363000000000000000000000000000000000000000000000'
       });
       expect(args[1]).toBe(undefined);
-      expect(typeof args[2]).toBe("function");
       expect(state).toBe(true);
       expect(spy.calledOnceWithExactly("queryCredit", address)).toBe(true);
-    })
-
-    test("if request fail", async () => {
-      try {
-        const stub = sandbox.stub(instance.moac.getChain3().mc, "call");
-        stub.yields(new Error("could not connect to node"), null);
-        await instance.queryCredit(address);
-      } catch (error) {
-        expect(error.message).toBe("could not connect to node");
-      }
     })
   })
 })
