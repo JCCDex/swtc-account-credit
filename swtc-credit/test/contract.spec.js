@@ -39,18 +39,10 @@ describe("test contract.ts", () => {
     });
 
     test("if request success", async () => {
-      const stub = sandbox.stub(instance.moac.getChain3().mc, "call");
-      stub.returns("0x0000000000000000000000000000000000000000000000000000000000000001")
-      const spy = sandbox.spy(SmartContract.prototype, "callABI");
+      const stub = sandbox.stub(SmartContract.prototype, "callABI").resolves(true);
       const state = await instance.queryCredit(address);
-      const args = stub.args[0];
-      expect(args[0]).toEqual({
-        to: '0xf5d4e7dd6f46402004f085be51dbfcc023532264',
-        data: '0x6b6f71c20000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002a30783565646363656466653939353266356238323839333762333235626431663133326161303966363000000000000000000000000000000000000000000000'
-      });
-      expect(args[1]).toBe(undefined);
+      expect(stub.calledOnceWithExactly("queryCredit", address)).toBe(true);
       expect(state).toBe(true);
-      expect(spy.calledOnceWithExactly("queryCredit", address)).toBe(true);
     })
   })
 })

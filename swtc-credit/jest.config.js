@@ -1,6 +1,7 @@
 module.exports = {
   verbose: true,
   silent: false,
+  testEnvironment: "node",
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
     "^~/(.*)$": "<rootDir>/$1"
