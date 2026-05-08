@@ -1,0 +1,2 @@
+cd swtc-credit
+npx tsc --noEmit

@@ -8,10 +8,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "deploy": "./publish.sh",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "prepare": "cd .. && node node_modules/.bin/husky swtc-credit/.husky",
     "test": "jest",
-    "tslint": "tslint --project tsconfig.json --config tslint.json",
-    "precommit": "npm run tslint"
+    "tslint": "tslint --project tsconfig.json --config tslint.json"
   },
   "dependencies": {
     "jcc-moac-utils": "^0.3.12"
